@@ -1,0 +1,63 @@
+%% Thesis type: bachelor, master, doctoral
+\NewExpandableDocumentCommand{\ThesisType}{}{L2 ISTN}
+
+%% Thesis title (exactly as in the formal assignment)
+\NewExpandableDocumentCommand{\ThesisTitle}{}{Titre}
+%% Plaintext version for PDF metadata, uncomment if needed (defauls to \ThesisTitle)
+\NewExpandableDocumentCommand{\ThesisTitlePlaintext}{}{Titre}
+%% Thesis title (if custom formatting is needed for the title page, defauls to \ThesisTitle)
+\NewExpandableDocumentCommand{\ThesisTitleFront}{}{
+    \ThesisTitle\\
+    {\Huge\color{gray}vPre 0.0.1}
+}
+
+%% Author of the thesis
+\NewExpandableDocumentCommand{\ThesisAuthor}{}{\textcolor{red}{Alex Videcoq}}
+%% Plaintext version for PDF metadata, uncomment if needed (defauls to \ThesisAuthor)
+\NewExpandableDocumentCommand{\ThesisAuthorPlaintext}{}{Alex Videcoq}
+
+%% Year when the thesis is submitted
+\NewDocumentCommand{\YearSubmitted}{}{2025}
+%% Year of the last revision, uncomment if it is different from \YearSubmitted
+% \NewDocumentCommand{\YearRevision}{}{2025}
+
+%% University
+\NewDocumentCommand{\University}{}{Univesite de Rennes}
+
+%% Name of the department or institute, where the work was officially assigned
+%% (according to the Organizational Structure of MFF UK in English,
+%% or a full name of a department outside MFF)
+\NewDocumentCommand{\Department}{}{\textcolor{red}{ISTIC}}
+
+%% Is it a Department (katedra), or an Institute (ústav)?
+\NewDocumentCommand{\DeptType}{}{UFR}
+
+%% Thesis supervisor: name, surname and titles
+\NewDocumentCommand{\Supervisor}{}{\textcolor{red}{Prof. John Doe}}
+%% Thesis co-supervisor: name, surname and titles (uncomment if applicable)
+% \NewDocumentCommand{\CoSupervisor}{}{Prof. Matthieu Davy}
+
+%% Supervisor's department/institute (again according to Organizational structure of MFF)
+\NewDocumentCommand{\SupervisorsDepartment}{}{\textcolor{red}{ISTIC}}
+
+%% Study programme and specialization
+\NewDocumentCommand{\StudyProgramme}{}{\textcolor{red}{L2 ISTN}}
+
+%% Abstract (recommended length around 80-200 words; this is not a copy of your thesis assignment!)
+\NewDocumentCommand{\Abstract}{}{
+    Lorem Ipsum
+}
+
+%% Subject (short description for PDF metadata)
+\NewExpandableDocumentCommand{\Subject}{}{%
+    Lorem Ipsum
+}
+
+%% Keywords (about 3-7)
+\NewExpandableDocumentCommand{\Keywords}{}{%
+    \textcolor{red}{Mots, cles}
+}
+%% Plaintext version for PDF metadata, uncomment if needed (defauls to \Keywords)
+\NewExpandableDocumentCommand{\KeywordsPlaintext}{}{%
+    Mots, cles
+}

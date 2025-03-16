@@ -1,0 +1,59 @@
+\currentpdfbookmark{Title Page}{titlepage} % add PDF outline entry
+\thispagestyle{empty} % no number on the title page
+\begin{center}
+    \includegraphics[width=0.75\textwidth]{logo.png}
+
+    \Large
+
+    \vspace{-2em}
+    \vfill
+
+    {\ifFANCY\sffamily\Huge\else\bfseries\LARGE\fi
+        \MakeUppercase{\ThesisType} notes personelles}
+
+    \vfill
+
+    {\Huge
+        \ThesisAuthor}
+
+    \vspace{1em}
+
+    %% if `\ThesisTitleFront` is not defined, use `\ThesisTitle`
+    \ProvideExpandableDocumentCommand{\ThesisTitleFront}{}{\ThesisTitle}
+    % {\Huge \bfseries \ThesisTitleFront \par}
+    {\fontsize{30pt}{36pt}\selectfont \sffamily\bfseries
+        \ThesisTitleFront \par}
+
+    \vfill
+
+    \Department
+
+    \vspace{1.1em}
+
+    \begin{center}
+        \large
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{>{\sffamily\color{Gray40}}r @{\hspace{1.0em}} l}
+            Responsable de matiere    & \Supervisor     \\
+            \ifdef{\CoSupervisor}{%
+            Responsable OM & \CoSupervisor   \\
+            }{}
+            \ifdef{\StudyProgramme}{% TODO: programme vs program?
+            Cursus             & \StudyProgramme \\
+            }{}
+        \end{tabular}
+    \end{center}
+
+    \vspace{2em}
+
+    \ifFANCY\sffamily\fi
+    Rennes \YearSubmitted \\
+    \ifdef{\YearRevision}{%
+        \emph{Revised version \YearRevision} \par
+    }{}
+    \ifWIP
+        \small\ttfamily \textcolor{red}{(Draft - \today)} \par
+    \fi
+\end{center}
+
+\newpage
