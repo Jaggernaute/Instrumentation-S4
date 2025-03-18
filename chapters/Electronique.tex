@@ -1,0 +1,53 @@
+\chapter{Électronique} \label{electronique}
+\section{Microcontrôleur}
+
+\subsection{Introduction}
+
+\subsection{Microprocesseur (\textit{µP})}
+\begin{itemize}
+    \item C'est une \textbf{unité centrale de traitement} (\textbf{CPU}) qui exécute des instructions, mais \textbf{ne contient ni mémoire RAM, ni mémoire ROM, ni entrées/sorties intégrées}.
+    \item Il est conçu pour des systèmes où ces composants (\textit{RAM, ROM, interfaces, etc.}) sont ajoutés séparément sur une carte mère.
+    \item Utilisé principalement dans les \textbf{ordinateurs}, \textbf{serveurs} et \textbf{systèmes embarqués avancés} (\textit{ex: processeurs Intel, AMD, Apple Silicon, ...}).
+\end{itemize}
+
+\subsection{Microcontrôleur (\textit{MCU})}
+\begin{itemize}
+    \item C'est un \textbf{circuit intégré complet} incluant un \textbf{microprocesseur}, de la \textbf{mémoire RAM}, de la \textbf{mémoire ROM (Flash)} et des \textbf{périphériques d'entrées/sorties} sur une seule puce.
+    \item Il possède donc un \textbf{plus haut degré d'intégration} qu'un microprocesseur, et est souvent désigné comme un \textbf{Système sur une Puce} (\textbf{SoC}, \textit{System On a Chip}).
+    \item Conçu pour exécuter des \textbf{tâches spécifiques} avec un \textbf{coût réduit} et une \textbf{consommation d'énergie optimisée}.
+    \item Utilisé dans les \textbf{systèmes embarqués}, comme les \textbf{appareils électroménagers}, les \textbf{voitures}, les \textbf{jouets électroniques} et les \textbf{objets connectés} (\textit{ex: Arduino, STM32, PIC, ESP32}).
+\end{itemize}
+
+\section{Le microcontrôleur ESP32}
+
+Le microcontrôleur utilisé dans la mineure \textbf{Instrumentation} est 
+l'\textbf{ESP32}, fabriqué par \textbf{Espressif Systems} (\textit{Chine}).
+
+\subsection{Caractéristiques principales de l'ESP32}
+\begin{itemize}
+    \item \textbf{Processeur} : \textit{Dual-Core Xtensa LX6} (jusqu'à \SI{240}{\mega\hertz}), conçu par \textbf{Tensilica}.
+    \item \textbf{Instructions DSP} (\textit{Digital Signal Processing}) intégrées pour le \textbf{traitement de signaux complexes}.
+    \item \textbf{Connectivité} : \textbf{Wi-Fi}, \textbf{Bluetooth}, \textbf{Bluetooth Low Energy (BLE)}.
+    \item \textbf{Modes basse consommation} disponibles.
+    \item \textbf{Interfaces de périphériques} :
+    \begin{itemize}
+        \item CAN (Convertisseur \textbf{DAC})
+        \item CNA (Convertisseur \textbf{ADC})
+        \item Capteur de toucher
+        \item SPI, I2C, I2S, CAN, UART, PWM
+    \end{itemize}
+\end{itemize}
+
+\subsection{Carte de développement ESP32-WROVER-B}
+
+Le microcontrôleur utilisé est intégré dans une \textbf{carte de développement} 
+basée sur le module \textbf{ESP32-WROVER-B}, fabriqué par \textbf{uPesy} 
+(\textit{France}) sous la référence \textbf{ESP32 Wrover DevKit v2.1}.
+
+\textbf{Avantages} de cette carte :
+\begin{itemize}
+    \item \textbf{Brochage des principales entrées/sorties} pour une utilisation simplifiée.
+    \item \textbf{Alimentation et connexion USB-C} intégrées.
+    \item \textbf{Mémoire supplémentaire} pour des applications plus complexes.
+    \item \textbf{Compatibilité breadboard}, idéale pour la réalisation de \textbf{prototypes}.
+\end{itemize}

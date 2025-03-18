@@ -10,6 +10,7 @@ $pdf_mode = 1; # use pdfTeX
 ## --halt-on-error: stop processing at the first error
 ## %O and %S will forward Options and the Source file, respectively, given to latexmk.
 set_tex_cmds("--shell-escape --file-line-error --halt-on-error %O %S");
+@generated_exts = ( 'aux', 'bcf', 'fls', 'idx', 'ind', 'lof', 'lot', 'out', 'toc' );
 
 # This shows how to use the glossaries package
 # (http://www.ctan.org/pkg/glossaries) and the glossaries-extra package

@@ -1,17 +1,17 @@
 %%% Preamble
 
+\usepackage[french]{babel}
+
 \usepackage{tikz}
 \usetikzlibrary{decorations.fractals}
 \usetikzlibrary{lindenmayersystems}
+\usetikzlibrary{svg.path}
 \pgfdeclarelindenmayersystem{cantor set}{
   \rule{F -> FfF}
   \rule{f -> fff}
 }
 
-\usepackage{pgfplots}
-
-
-\usepackage[dvipsnames]{xcolor}
+\usepackage{pdfpages}
 
 %% Data about the document, like title, author, etc.
 \input{preamble/data}
@@ -33,7 +33,6 @@
 %% Miscellaneous commands/macros
 \input{preamble/misc/macros}
 \input{preamble/misc/tikz}
-\input{preamble/misc/inkscape}
 
 %% Layout of the document, formatting of chapters, sections, TOC, etc.
 \input{preamble/layout/geometry}
@@ -66,6 +65,13 @@
 \input{preamble/user/macros}
 \input{preamble/user/packages-macros.tex}
 \input{preamble/user/math}
+
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+\usepackage{tabularx}
+\usepackage{multirow}
 
 \usepackage[
     nonumberlist,
