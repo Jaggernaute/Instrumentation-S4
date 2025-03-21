@@ -1,9 +1,7 @@
 # Clean LaTeX Template
 
 le PDF est disponible ici :
-https://jaggernaute.github.io/[repo\]/thesis.pdf
-
-https://jaggernaute.github.io/clean-latex-template/thesis.pdf
+https://jaggernaute.github.io/Instrumentation-S4/thesis.pdf
 
 ## Description
 
@@ -11,15 +9,23 @@ Description
 
 ## Contenu
 
-- **Chapitre 1** : Lorem Ipsum
+- **Chapitre 1** : Introduction aux principes de l'instrumentation, IoT, Chaine d'acquisition.
+- **Chapitre 2** : Physique des capteurs.
+- **Chapitre 3** : Electronique des fondamentale pour l'instrumentation:
+  - Les microcontrôleurs
+  - Les amplificateurs opérationnels
+  - Les conditionneurs
+  - Les CAN / CNA
+- **Chapitre 4** : (WIP) Réseau.
 
 ## Avancement des sections
 
 | Section | Statut |
 |---------|--------|
-| Section complété | 🟢 Complété |
-| Section en cours | 🟡 En cours |
-| Section non commencée | 🔴 À faire |
+| **Chapitre 1** | 🟢 Complété |
+| **Chapitre 2** | 🟢 Complété |
+| **Chapitre 3** | 🟡 En cours |
+| **Chapitre 4** | 🔴 À faire  |
 
 ### Légende
 
@@ -27,6 +33,6 @@ Description
 - 🟡 **En cours** : La section est en train d’être faite.
 - 🔴 **À faire** : La section n’a pas encore été commencée.
 
-Mise à jour : Février 2025
+Mise à jour : Mars 2025
 
 ### Template [TeXtured by jdujava](https://github.com/jdujava/TeXtured)

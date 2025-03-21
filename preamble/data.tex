@@ -2,13 +2,13 @@
 \NewExpandableDocumentCommand{\ThesisType}{}{L2 ISTN}
 
 %% Thesis title (exactly as in the formal assignment)
-\NewExpandableDocumentCommand{\ThesisTitle}{}{Titre}
+\NewExpandableDocumentCommand{\ThesisTitle}{}{Instrumentation}
 %% Plaintext version for PDF metadata, uncomment if needed (defauls to \ThesisTitle)
-\NewExpandableDocumentCommand{\ThesisTitlePlaintext}{}{Titre}
+\NewExpandableDocumentCommand{\ThesisTitlePlaintext}{}{Instrumentation}
 %% Thesis title (if custom formatting is needed for the title page, defauls to \ThesisTitle)
 \NewExpandableDocumentCommand{\ThesisTitleFront}{}{
     \ThesisTitle\\
-    {\Huge\color{gray}vPre 0.0.1}
+    {\Huge\color{gray} pas pr\^et pour utilisation}
 }
 
 %% Author of the thesis
@@ -33,7 +33,7 @@
 \NewDocumentCommand{\DeptType}{}{UFR}
 
 %% Thesis supervisor: name, surname and titles
-\NewDocumentCommand{\Supervisor}{}{\textcolor{red}{Prof. John Doe}}
+\NewDocumentCommand{\Supervisor}{}{\textcolor{red}{Prof. Fabien Gunzt}}
 %% Thesis co-supervisor: name, surname and titles (uncomment if applicable)
 % \NewDocumentCommand{\CoSupervisor}{}{Prof. Matthieu Davy}
 
@@ -45,19 +45,19 @@
 
 %% Abstract (recommended length around 80-200 words; this is not a copy of your thesis assignment!)
 \NewDocumentCommand{\Abstract}{}{
-    Lorem Ipsum
+    
 }
 
 %% Subject (short description for PDF metadata)
 \NewExpandableDocumentCommand{\Subject}{}{%
-    Lorem Ipsum
+    Notes de cours pour la mineure Instrumentation.
 }
 
 %% Keywords (about 3-7)
 \NewExpandableDocumentCommand{\Keywords}{}{%
-    \textcolor{red}{Mots, cles}
+    \textcolor{red}{Instrumentation, ESP32, microcontrôleur, amplificateur opérationnel}
 }
 %% Plaintext version for PDF metadata, uncomment if needed (defauls to \Keywords)
 \NewExpandableDocumentCommand{\KeywordsPlaintext}{}{%
-    Mots, cles
+    Instrumentation, ESP32, microcontrôleur, amplificateur opérationnel
 }
