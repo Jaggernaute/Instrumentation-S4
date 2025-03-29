@@ -467,7 +467,9 @@ en permettant le traitement et l’adaptation des signaux issus de divers capteu
 De nombreux capteurs, tels que les \textbf{thermocouples}, 
 \textbf{jauges de contrainte} ou \textbf{photodiodes}, génèrent des tensions ou 
 courants très faibles, généralement de l’ordre du \textit{microvolt} (\(\unit{\micro\volt}\)) 
-au \textit{millivolt} (\(\unit{\milli\volt}\)). Un amplificateur opérationnel permet d’amplifier ces signaux pour les rendre exploitables par un microcontrôleur ou un système d’acquisition.
+au \textit{millivolt} (\(\unit{\milli\volt}\)). Un amplificateur opérationnel 
+permet d’amplifier ces signaux pour les rendre exploitables par un microcontrôleur 
+ou un système d’acquisition.
 
 \subsection{Adaptation d’impédance}
 
@@ -507,14 +509,217 @@ Les microcontrôleurs et cartes d’acquisition ne supportent généralement que
 plages de tensions spécifiques (par exemple, \( 0 - \SI{3.3}{\volt} \) ou 
 \( 0 - \SI{5}{\volt} \)). Un AOP permet de :
 \begin{itemize}
-    \item \textbf{Ajuster} la plage de tension du capteur afin qu’elle corresponde à celle de l’ADC (\textit{Analog-to-Digital Converter}).
-    \item \textbf{Décaler (offset)} un signal pour éviter les tensions négatives et le rendre compatible avec l’électronique numérique.
+    \item \textbf{Ajuster} la plage de tension du capteur afin qu’elle 
+    corresponde à celle de l’ADC (\textit{Analog-to-Digital Converter}).
+    \item \textbf{Décaler (offset)} un signal pour éviter les tensions négatives 
+    et le rendre compatible avec l’électronique numérique.
 \end{itemize}
 
 \subsection{Compensation des erreurs et linéarisation}
 
-Certains capteurs présentent des \textbf{non-linéarités} ou des erreurs liées à des \textbf{variations de température}. Un AOP peut être utilisé dans un circuit de compensation pour corriger ces erreurs et améliorer la précision des mesures.
+Certains capteurs présentent des \textbf{non-linéarités} ou des erreurs liées à 
+des \textbf{variations de température}. Un AOP peut être utilisé dans un circuit 
+de compensation pour corriger ces erreurs et améliorer la précision des mesures.
 
 \subsection{Conclusion}
 
-Les amplificateurs opérationnels sont indispensables en instrumentation. Sans eux, de nombreux capteurs seraient inexploitables directement, rendant difficile le traitement et l’analyse des signaux dans les systèmes électroniques modernes.
+Les amplificateurs opérationnels sont indispensables en instrumentation. Sans 
+eux, de nombreux capteurs seraient inexploitables directement, rendant difficile 
+le traitement et l’analyse des signaux dans les systèmes électroniques modernes.
+
+
+\section{Schémas de base}
+
+\subsection{Le suiveur}
+
+Le suiveur est le montage à contre-réaction négative le plus simple existant. Il 
+est utilisé pour éviter de tirer du courant à l’entrée tout en étant capable de 
+délivrer un courant significatif en sortie, dans les limites de l’alimentation.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{suiveur}
+    \caption{Montage suiveur}
+    \label{fig:suiveur}
+\end{figure}
+
+En régime linéaire, l’égalité \( V_+ = V_- \) est vérifiée, ce qui implique que :
+
+\[
+V_S = V_E
+\]
+
+Cela est vrai tant que :
+\begin{itemize}
+    \item \( V_E \) reste dans la plage des tensions d’alimentation de 
+    l’amplificateur opérationnel.
+    \item La fréquence du signal \( V_E \) n’est pas trop élevée.
+\end{itemize}
+
+Le suiveur offre plusieurs avantages pratiques :
+\begin{itemize}
+    \item Il permet d’interfacer un capteur sensible à la charge, en exploitant 
+    son signal sans l’altérer.
+    \item Il offre une impédance d’entrée très élevée et une impédance de sortie
+    très faible, permettant ainsi d’amplifier en courant sans affecter la source.
+    \item Lorsqu'il est placé en sortie d’une broche de microcontrôleur, il 
+    permet de délivrer un courant supérieur à celui que le microcontrôleur 
+    pourrait fournir seul. Ce montage est donc utile pour interfacer un 
+    microcontrôleur avec des charges nécessitant plus de courant.
+\end{itemize}
+
+\subsection{L’amplificateur non-inverseur}
+
+
+L’amplificateur non inverseur est un montage utilisant un amplificateur 
+opérationnel (\textit{AOP}) avec une rétroaction négative. Il est utilisé pour 
+amplifier une tension d’entrée \( V_E \) sans inversion de phase. Ce montage est 
+particulièrement prisé pour des applications nécessitant un gain précis et une 
+impédance d’entrée élevée.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ampli-ni}
+    \caption{Montage amplificateur non-inverseur}
+    \label{fig:non-inverting}
+\end{figure}
+
+
+En régime linéaire, la relation \( V_+ = V_- \) est vérifiée, et comme \( V_+ \) 
+est directement relié à l’entrée \( V_E \), on a :
+
+\[
+V_- = V_E
+\]
+
+D'autre part, la tension \( V_- \) est obtenue à partir d’un pont diviseur de 
+tension formé par deux résistances \( Z_1 \) et \( Z_2 \). D’après la loi des 
+diviseurs de tension :
+
+\[
+V_- = \frac{Z_1}{Z_1 + Z_2} V_S
+\]
+
+Or, en régime linéaire, \( V_- = V_E \), donc :
+
+\[
+V_E = \frac{Z_1}{Z_1 + Z_2} V_S
+\]
+
+\textbf{Expression du gain}
+
+En réarrangeant l’équation précédente pour exprimer \( V_S \) en fonction de 
+\( V_E \), on obtient :
+
+\[
+V_S = V_E \cdot \frac{Z_1 + Z_2}{Z_1}
+\]
+
+Ce qui peut être réécrit sous la forme :
+
+\[
+V_S = \left( 1 + \frac{Z_2}{Z_1} \right) V_E
+\]
+
+Le gain en tension du montage est donc :
+
+\[
+G = 1 + \frac{Z_2}{Z_1}
+\]
+
+L’amplificateur non inverseur présente plusieurs avantages :
+\begin{itemize}
+    \item \textbf{Impédance d’entrée élevée} : Grâce à l’entrée non inverseuse de l’AOP, la source de signal ne subit pratiquement aucune charge.
+    \item \textbf{Amplification sans inversion} : La tension de sortie \( V_S \) est en phase avec la tension d’entrée \( V_E \).
+    \item \textbf{Gain réglable} : Le facteur d’amplification dépend du rapport \( Z_2 / Z_1 \), ce qui permet une grande flexibilité dans la conception.
+    \item \textbf{Stabilité et précision} : L’utilisation de la contre-réaction négative améliore la stabilité du gain et réduit la sensibilité aux variations des caractéristiques de l’AOP.
+\end{itemize}
+
+Ce montage est couramment utilisé dans :
+\begin{itemize}
+    \item Les \textbf{préamplificateurs audio}, où il est utilisé pour amplifier des signaux faibles en maintenant une bonne fidélité.
+    \item Les \textbf{capteurs électroniques}, où une amplification sans inversion est nécessaire avant le traitement du signal.
+    \item Les \textbf{systèmes de conditionnement de signal}, où il est utilisé pour adapter les niveaux de tension avant un traitement numérique.
+    \item Les \textbf{circuits d'instrumentation}, notamment dans les mesures précises de faibles signaux électriques.
+\end{itemize}
+
+\section{Conditionneur simple}
+\subsection{Principe de mesure}
+
+Le principe de mesure consiste en une source de tension qui alimente un pont diviseur
+de tension avec une résistance fixe \(R1\) et une autre représentant le capteur \(Rc\).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{pont-div}
+    \caption{Conditionneur simple}
+    \label{fig:conditionneur}
+\end{figure}
+
+Le montage suivant nous permet d’écrire la tension \(V\) :
+\[
+    V=\frac{R_c}{R_1+R_c}V_{cc}
+\]
+
+L’évolution de \(V\) en fonction de \(R_c\) n’est pas linéaire :
+\[
+    \frac{V}{V_{cc}}=\frac{x}{1+x}\quad\text{avec}\ x=\frac{R_c}{R_1}
+\]
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmax=20,
+            ymax=1,
+            xlabel=\(\frac{R_c}{R1}\),
+            ylabel=\(\frac{V}{V_{cc}}\),
+            grid=both,
+        ]
+            \addplot[domain=0:20, samples=100, color=blue]{x/(1+x)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Trace de la fonction \(\frac{V}{V_{cc}}=\frac{R_c}{R_1+R_c}\)}
+    \label{fig:cond-simple}
+\end{figure}
+
+\subsection{Choix de la valeur de \(R1\)}
+
+Considérons un conditionneur de signal basé sur un pont diviseur résistif 
+alimenté par une tension \( V_{cc} \), et composé de deux résistances : 
+\( R_1 = R_0 \) (fixe), et \( R_c = R_0 + \Delta R \), une résistance variable 
+représentant le capteur.
+
+La tension de sortie \( V \) prélevée au point milieu du diviseur s’écrit :
+\[
+V = \frac{R_c}{R_1 + R_c} \cdot V_{cc} = \frac{R_0 + \Delta R}{2R_0 + \Delta R} \cdot V_{cc}
+\]
+Cette expression montre que \( V \) n’est pas une fonction linéaire de \( \Delta R \).
+
+
+La sensibilité \( S \) est définie comme la dérivée de \( V \) par rapport à \( R_c \) :
+\[
+S = \frac{dV}{dR_c} = \left[ \frac{(R_0 + R_c) - R_c}{(R_0 + R_c)^2} \right] \cdot V_{cc} = \frac{R_0}{(R_0 + R_c)^2} \cdot V_{cc}
+\]
+
+En remplaçant \( R_c \) par \( R_0 + \Delta R \), on obtient :
+\[
+S = \frac{R_0}{(2R_0 + \Delta R)^2} \cdot V_{cc}
+\]
+
+Dans le cas où le capteur fonctionne en petits signaux, c’est-à-dire lorsque 
+\( \Delta R \ll R_0 \), on peut approximer la réponse du conditionneur comme 
+étant linéaire. Sous cette hypothèse :
+\[
+S = \left. \frac{dV}{dR_c} \right|_{R_c = R_0} = \frac{V_{cc}}{4R_0}
+\]
+
+Ainsi, dans cette zone de fonctionnement linéaire, la variation de la tension de 
+sortie \( \Delta V \) en fonction de la variation de la résistance du capteur 
+\( \Delta R \) s’exprime comme :
+\[
+\Delta V = S \cdot \Delta R = \frac{V_{cc}}{4R_0} \cdot \Delta R
+\]
+
+Cette relation montre que, dans le régime de petits signaux, la sortie est 
+proportionnelle à la variation de résistance, ce qui est idéal pour les 
+applications de mesure ou de détection.

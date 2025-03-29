@@ -25,8 +25,8 @@ Description
 | **Chapitre 1** | 🟢 Complété |
 | **Chapitre 2** | 🟢 Complété |
 | **Chapitre 3** (Les microcontrôleurs) | 🟢 Complété |
-| **Chapitre 3** (Les amplificateurs opérationnels) | 🟡 En cours |
-| **Chapitre 3** (Les conditionneurs) | 🔴 À faire |
+| **Chapitre 3** (Les amplificateurs opérationnels) | 🟢 Complété |
+| **Chapitre 3** (Les conditionneurs) | 🟢 Complété |
 | **Chapitre 3** (Les CAN / CNA) | 🔴 À faire |
 | **Chapitre 4** | 🔴 À faire  |
 
