@@ -1,0 +1,55 @@
+\chapter{Hors programme}
+\label{chap:hors-programme}
+
+\section{Echantillonage}
+
+L'operation d'\'echantillonage consiste a representer un signal fonction du temps 
+\(s(t)\) \`a des instants multiples d'un intervalle de temps \(T\) (p\'eriode d'\'echantillonage).
+Cette opoeration s'analyse simplement par l'intermediaire de la th\'eorie des distributions.
+Par definition la distribution des masses unitaires aux points de l'axe r\'eel multiples 
+entiers de la periode \(T\), assosiee a la fonction \(s(t)\) a l'ensemble de ses valeurs
+\(s(nT)\) o\`u \(n\) est un entier.
+\[
+    u(t) = \sum_{n=-\infty}^{+\infty} \delta(t - nT)
+\]
+
+Soit $\mathbb{R}^n$. La ``fonction delta de Dirac'', notée $\delta$, n’est pas 
+une fonction ordinaire, mais une mesure borélienne particulière. Elle est 
+\textbf{concentrée en un seul point}, à savoir l’origine $0$, et attribue une 
+masse totale égale à $1$ à ce point. On la définit ainsi comme la mesure de 
+probabilité telle que :
+
+\[
+\delta(\{0\}) = 1, \quad \text{et plus généralement :} \quad \delta(A) = 
+\begin{cases}
+1 & \text{si } 0 \in A \\
+0 & \text{sinon}
+\end{cases}
+\quad \text{pour tout borélien } A \subset \mathbb{R}^n.
+\]
+
+Par abus de langage, on dit que la fonction delta de Dirac est 
+\textbf{nulle partout sauf en 0}, où elle prend une valeur infinie, de manière à 
+ce que \textbf{l’intégrale sur l’ensemble de l’espace soit égale à 1}. Il ne 
+s’agit pas d’une fonction au sens classique, mais d’un objet distribué, 
+c’est-à-dire une \textbf{mesure} (ou une \textbf{distribution}) dont l’effet se 
+fait uniquement sentir en un seul point.
+
+La mesure $\delta$ est une \textbf{mesure de Radon}, ce qui signifie en 
+particulier qu’elle est définie sur les ensembles boréliens et qu’elle est finie 
+sur les compacts. Elle peut alors être identifiée à une 
+\textbf{forme linéaire continue de norme 1} sur l’espace des fonctions continues 
+à support compact, noté $\mathcal{C}_c(\mathbb{R}^n)$. Cette forme linéaire agit 
+comme suit :
+
+\[
+\mathcal{C}_c(\mathbb{R}^n) \to \mathbb{R}, \quad \varphi \mapsto \langle \delta, \varphi \rangle := \int \varphi \, \mathrm{d}\delta = \varphi(0)
+\]
+
+Autrement dit, \textbf{intégrer une fonction test $\varphi$ contre la mesure 
+$\delta$ revient simplement à évaluer cette fonction en $0$}.
+
+L’espace $\mathcal{C}_c(\mathbb{R}^n)$ désigne l’ensemble des fonctions 
+continues à support compact dans $\mathbb{R}^n$, muni de la norme uniforme 
+$\|\cdot\|_\infty$ associée à la convergence uniforme.
+
