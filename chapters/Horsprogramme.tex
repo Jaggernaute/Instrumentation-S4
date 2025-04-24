@@ -1,0 +1,174 @@
+\chapter{Hors programme}\label{chap:hors-programme}
+
+\section{Échantillonnage}\label{hp:echantillonage}
+
+L’opération d’échantillonnage consiste à représenter un signal fonction du temps 
+\(s(t)\) \`a des instants multiples d’un intervalle de temps \(T\) (p\'eriode d’échantillonnage).
+Cette op\'eration s'analyse simplement par l’intermédiaire de la th\'eorie des distributions.
+Par définition la distribution des masses unitaires aux points de l'axe r\'eel multiples 
+entiers de la période \(T\), associée à la fonction \(s(t)\) a l'ensemble de ses valeurs
+\(s(nT)\) o\`u \(n\) est un entier.
+\[
+    u(t) = \sum_{n=-\infty}^{+\infty} \delta(t - nT)
+\]
+% \textit{Pour plus de details, voir \Cref{sec:dirac}.}
+
+\section{Fonction delta de Dirac}
+\label{sec:dirac}
+
+Soit $\mathbb{R}^n$. La fonction delta de Dirac, notée $\delta$, n’est pas 
+une fonction ordinaire, mais une mesure borélienne\footnote{Glossaire : \gls{mesure_borelienne}} particulière. Elle est 
+\textbf{concentrée en un seul point}, à savoir l’origine $0$, et attribue une 
+masse totale égale à $1$ à ce point. On la définit ainsi comme la mesure de 
+probabilité telle que :
+
+\begin{align*}
+    \delta(\{0\})  &= 1\\
+    \text{et plus généralement :} \quad \delta(A) &=
+    \begin{cases}
+        1 & \text{si } 0 \in A \\
+        0 & \text{sinon}
+    \end{cases}
+\end{align*}
+Pour tout borélien\footnote{Glossaire : \gls{borelien}} \(A \subset \mathbb{R}^n\).
+
+Par abus de langage, on dit que la fonction delta de Dirac est 
+\textbf{nulle partout sauf en 0}, où elle prend une valeur infinie, de manière que 
+\textbf{l’intégrale sur l’ensemble de l’espace soit égale à 1}. Il ne 
+s’agit pas d’une fonction au sens classique, mais d’un objet distribué, 
+c’est-à-dire une \textbf{mesure} (ou une \textbf{distribution}) dont l’effet se 
+fait uniquement sentir en un seul point.
+
+La mesure $\delta$ est une \textbf{mesure de Radon}, ce qui signifie en 
+particulier qu’elle est définie sur les ensembles boréliens et qu’elle est finie 
+sur les compacts. Elle peut alors être identifiée à une 
+\textbf{forme linéaire continue de norme 1} sur l’espace des fonctions continues 
+à support compact, noté $\mathcal{C}_c(\mathbb{R}^n)$. Cette forme linéaire agit 
+comme suit :
+
+\[
+\mathcal{C}_c(\mathbb{R}^n) \to \mathbb{R}, \quad \varphi \mapsto \langle \delta, \varphi \rangle := \int \varphi \, \mathrm{d}\delta = \varphi(0)
+\]
+
+Autrement dit, \textbf{intégrer une fonction test $\varphi$ contre la mesure 
+$\delta$ revient simplement à évaluer cette fonction en $0$}.
+
+L’espace $\mathcal{C}_c(\mathbb{R}^n)$ désigne l’ensemble des fonctions 
+continues à support compact dans $\mathbb{R}^n$, muni de la norme uniforme 
+$\|\cdot\|_\infty$ associée à la convergence uniforme.
+
+\begin{figure}[!ht]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            grid=both,
+            domain=0:2, samples=100,
+            ytick={-0.2,0,1,1.2},
+            xtick={-1.2,-1,0,1,1.2},
+            ymin=-0.2, ymax=1.2,
+            xmin=-1.2, xmax=1.2,
+        ]
+            \addplot[thick, RoyalPurple, samples=100, domain=-1.2:1.2] {0};
+            \draw[->, thick, RoyalPurple] (axis cs:0,0) -- (axis cs:0,1);
+        \end{axis}
+    \end{tikzpicture}
+    \caption{La fonction delta de Dirac.}
+    \label{figDirac}%
+\end{figure}
+
+\emph{\Cref{figDirac} La flèche signifie que toute la "masse" de la fonction est concentrée en 0 et vaut 1.}
+
+
+\subsection{Le peigne de Dirac}
+\label{sec:peigne-dirac}
+Le peigne de Dirac est une mesure borélienne sur $\mathbb{R}^n$ qui
+\textbf{concentre une masse unitaire} sur chaque point de la grille
+\(\mathbb{Z}^n\) (l’ensemble des entiers naturels). Il est défini par la
+\textbf{somme infinie} de la fonction delta de Dirac, notée $\delta$,
+\textbf{pondérée} par la période d’échantillonnage $T$ :
+\[
+    \Sha_T (t)\ \stackrel{\mathrm{def}}{=}\  \sum_{k=-\infty}^{\infty}\delta_{k T}(t) = \sum_{k=-\infty}^{\infty}\delta(t-kT).
+\]
+
+\begin{figure}[!ht]
+    \begin{tikzpicture}
+        \begin{axis}[
+            grid=both,
+            domain=-1:1, samples=100,
+            ytick={-0.2,0,1,1.2},
+            xtick={-1.2,-1,0,1,1.2},
+            xticklabels={,\(-T\),0,\(T\),},
+            yticklabels={,0,1,},
+            ymin=-0.2, ymax=1.2,
+            xmin=-1.2, xmax=1.2,
+        ]
+            \addplot[thick, RoyalPurple, samples=100, domain=-1.2:1.2] {0};
+            \pgfplotsinvokeforeach {-1,0,1}{%
+                \draw[->, thick, RoyalPurple] (axis cs:#1,0) -- (axis cs:#1,1);
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Le peigne de Dirac.}
+    \label{fig:peigne-dirac}%
+\end{figure}
+
+\subsection{Série de Fourier}
+
+Il est clair que \(\Sha_T(t)\) est périodique de période \(T\). C’est-à-dire que :
+\[
+    \Sha_T(t+T) = \Sha_T(t)
+\]
+pour tout \(t\). La s\'erie de Fourrier complexe de ce genre de fonction p\'eriodique est :
+\[
+    \Sha_{T}(t)=\sum_{n=-\infty}^{+\infty}c_{n}e^{i2\pi n{\frac{t}{T}}}
+\]
+o\`u les coefficients de Fourier sont donn\'es par :
+\begin{align*}
+c_n &= \frac{1}{T} \int_{t_0}^{t_0+T}\Sha_{T}(t)e^{-i2\pi n\frac{t}{T}}\,dt\quad (-\infty < t_0 < +\infty )\\
+    &= \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} \Sha_{T}(t) e^{-i2\pi n\frac{t}{T}}\,dt\\
+    &= \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} \delta(t) e^{-i2\pi n\frac{t}{T}}\,dt\\
+    &= \frac{1}{T} e^{-i2\pi n\frac{0}{T}}\\
+    &= \frac{1}{T}
+\end{align*}
+
+Tous les coefficients de Fourier sont donc égaux à \(\frac{1}{T}\). En
+conséquence, la série de Fourier de \(\Sha_{T}(t)\) est :
+\[
+    \Sha_{T}(t)=\sum_{n=-\infty}^{+\infty}\frac{1}{T}e^{i2\pi n{\frac{t}{T}}}
+\]
+Quand la p\'eriode est \(T=1\), on obtient :
+\[
+    \Sha(x)=\sum_{n=-\infty}^{+\infty}e^{i2\pi n x}
+\]
+
+Cette s\'erie diverge, quand elle est \'etudi\'ee comme une s\'erie de nombres complexes 
+ordinaires. Mais elle converge dans le sens des distributions.
+
+Une "racine carr\'ee" du peigne de Dirac a des applications en physique, sp\'ecifiquement :
+
+\[
+    \delta_N^{(1 / 2)}(\xi) = \frac{1}{\sqrt{NT}} \sum_{\nu=0}^{N-1} e^{-i \frac{2\pi}{T}\xi \nu}, \quad 
+\lim_{N \rightarrow \infty}\left|\delta_N^{(1 / 2)}(\xi)\right|^2= \sum_{k=-\infty}^{\infty} \delta(\xi - kT)
+\]
+m\^eme si ce n'est pas une distribution au sens de classique.
+
+\section{Transformée de Fourier}
+
+La transformée de Fourier d’un peigne de Dirac est également un peigne de Dirac. 
+Pour la transformée de Fourier \(\mathcal{F}\), exprimée dans le domaine des 
+fréquences (en \si{\hertz} ), le peigne de Dirac \(\Sha_T\) de période \(T\) se 
+transforme en un peigne de Dirac redimensionné de période \(1/T\), c’est-à-dire que :
+\begin{align*}
+    \mathcal{F}\left[f\right]\left(\xi\right) &= \int_{-\infty}^{+\infty} f(t) e^{-i 2 \pi \xi t} dt\\
+    \mathcal{F}\left[\Sha_T\right]\left(\xi\right) &= \frac{1}{T}\sum_{k=-\infty}^{+\infty} \delta\left(\xi - k\frac{1}{T}\right)\\
+    &= \frac{1}{T}\Sha_\frac{1}{T}\left(\xi\right)
+\end{align*}
+
+Est proportionnelle à un autre peigne de Dirac de période \(1/T\) (radians par seconde).
+Le peigne de Dirac \(\Sha\) de période \(T=1\) est une fonction propre de \(\mathcal{F}\) 
+vers la valeur propre \(1\).
+
+Ce résultat peut être établi en considérant la transformée de Fourier 
+\(S_\tau\left(\xi\right)=\mathcal{F}\left[s_\tau\right]\left(\xi\right)\) de la famille
+de fonctions \(s_\tau(x)\) de la forme :
+
