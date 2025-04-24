@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  ## thanks to https://github.com/exaexa/better-mff-document
-  ##       and https://github.com/mff-cuni-cz/cuni-document-validator
+  ## thanks to https://github.com/exaexa/better-mff-Document
+  ##       and https://github.com/mff-cuni-cz/cuni-Document-validator
   build:
     name: Build PDF and upload as an artifact
     runs-on: ubuntu-latest
@@ -18,17 +18,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
-      - name: Compile LaTeX document
+      - name: Compile LaTeX Document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: document.tex
+          root_file: Document.tex
       - name: Upload the artifact
         uses: actions/upload-artifact@v4
         with:
           name: Thesis
           path: |
             README.md
-            document.pdf
+            Document.pdf
   verify:
     name: Verify PDF/A
     runs-on: ubuntu-latest
