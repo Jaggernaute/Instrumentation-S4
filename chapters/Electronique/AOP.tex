@@ -1,4 +1,4 @@
-\section{Amplificateur opérationnel}\label{electronique:opamp}
+\section{Amplificateur opérationnel}\label{electroniqueOpamp}
 
 Un \textbf{amplificateur opérationnel} est un dispositif électronique permettant 
 d'amplifier une différence de tension. Il est également appelé \textit{Ampli OP}, 
@@ -20,7 +20,7 @@ certains cas, l'alimentation négative peut être fournie par la masse
         \centering
         \includegraphics[width=0.9\textwidth]{opamp}
         \caption{Amplificateur opérationnel}
-        \label{fig:opamp}
+        \label{figOpamp}
     \end{figure}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -28,7 +28,7 @@ certains cas, l'alimentation négative peut être fournie par la masse
         \centering
         \includegraphics[width=0.3\textwidth]{MCP6271}
         \caption{Amplificateur opérationnel MCP6271}
-        \label{fig:opamp-symbol}
+        \label{figOpampSymbol}
     \end{figure}
 \end{minipage}
 
@@ -88,7 +88,7 @@ appelé \textbf{schéma de représentation équivalent}.
     \caption{
         Schéma équivalent d'un amplificateur opérationnel LM741
     }
-    \label{fig:opamp-equivalent}
+    \label{figOpampEquivalent}
 \end{figure}
 
 Dans le cas d'un \textbf{amplificateur opérationnel r\'eel}, on note la relation entrée
@@ -101,7 +101,7 @@ O\`u \(G_{diff}\) est le gain différentiel et \(G_{mc}\) le gain en mode commun
 Le gain en mode commun est souvent tr\`es faible, de l'ordre de \SI{100}{\micro\volt\per\volt}.
 Le gain différentiel est tr\`es élevé, de l'ordre de \SI{100000}{\volt\per\volt}, 
 on voit très vite que le moindre écart différentiel au niveau des entrées va 
-représenter une grande tension en sortie..
+représenter une grande tension en sortie.
 Ainsi l'on peut approximer un \textbf{amplificateur opérationnel idéal} par la relation :
 
 \begin{align*}
@@ -115,7 +115,7 @@ Ce qui donne la vue interne simplifiée d'un AOP :\\
         \centering
         \includegraphics[width=0.9\textwidth]{opamp2}
         \caption{Amplificateur opérationnel idéal}
-        \label{fig:opamp-ideal}
+        \label{figOpampIdeal}
     \end{figure}
 \end{minipage}
 \begin{minipage}{0.2\textwidth}
@@ -137,9 +137,9 @@ Ce qui donne la vue interne simplifiée d'un AOP :\\
 L'amplificateur opérationnel peut adopter trois comportements distincts :
 
 \begin{itemize}
-    \item Si \( V_S < V_{CC-} \), l'AOP est en \textbf{saturation négative}, et la tension de sortie est bloquée à \( V_{CC-} \).
-    \item Si \( V_S > V_{CC+} \), l'AOP est en \textbf{saturation positive}, et la tension de sortie est bloquée à \( V_{CC+} \).
-    \item Si \( V_{CC-} < V_S < V_{CC+} \), l'AOP fonctionne en \textbf{régime linéaire}, et la relation suivante est valide :
+    \item Si \( V_S < V_{CC-} \), l'AOP est en \textbf{saturation négative} et la tension de sortie est bloquée à \( V_{CC-} \).
+    \item Si \( V_S > V_{CC+} \), l'AOP est en \textbf{saturation positive} et la tension de sortie est bloquée à \( V_{CC+} \).
+    \item Si \( V_{CC-} < V_S < V_{CC+} \), l'AOP fonctionne en \textbf{régime linéaire} et la relation suivante est valide :
     \[
     V_S = G_{\text{diff}} \times (V_+ - V_-)
     \]
@@ -194,11 +194,11 @@ En résumé, un amplificateur opérationnel peut fonctionner selon deux régimes
     \end{tikzpicture}
     }
     \caption{Régime linéaire et régime saturé}
-    \label{fig:aop-lineaire}
+    \label{figAopLineaire}
 \end{figure}
 
 
-\subsection{Largeur de la zone de fonctionnement linéaire:}
+\subsection{Largeur de la zone de fonctionnement linéaire~:}
 
 Prenons l'exemple d'un amplificateur opérationnel alimenté en \(V_{CC+}=12V\) 
 et \( V_{CC-} = -12V \), avec un gain différentiel \( G_{\text{diff}} \) de 
@@ -228,7 +228,7 @@ Cependant, les amplificateurs opérationnels dits \textbf{rail-to-rail}, grâce 
 leur conception spécifique, sont capables d'atteindre quasiment les tensions 
 d'alimentation, améliorant ainsi leur plage de fonctionnement.
 
-\subsection{impédance d'entrée}
+\subsection{Impédance d'entrée}
 Un amplificateur opérationnel se caractérise par une 
 \textbf{grande impédance d’entrée} au niveau des bornes \( V_+ \) et \( V_- \). 
 
@@ -297,7 +297,7 @@ Si l’on néglige les imperfections des amplificateurs opérationnels, on obtie
     \end{tikzpicture}
     }
     \caption{Cas d’un ampli op alimenté symétriquement}
-    \label{fig:aop-ideal}
+    \label{figAopIdeal}
 \end{figure}
 
 \section{Contre-réaction}
@@ -311,9 +311,9 @@ aux besoins du circuit.
 On distingue trois types de contre-réaction :
 
 \begin{itemize}
-    \item \textbf{Contre-réaction positive} : elle amplifie les variations du signal d’entrée et peut conduire à une saturation rapide du circuit. Elle est utilisée dans des applications comme les comparateurs et les oscillateurs.
-    \item \textbf{Contre-réaction négative} : elle réduit l’écart entre l’entrée et la sortie, stabilisant ainsi le fonctionnement de l’amplificateur. Ce type de contre-réaction est largement utilisé dans les circuits d’amplification linéaire.
-    \item \textbf{Contre-réaction bilatérale} : elle combine des aspects des deux contre-réactions précédentes et est utilisée dans certains circuits spécifiques nécessitant un contrôle précis du gain et de la réponse en fréquence.
+    \item \textbf{Contre-réaction positive ~:} elle amplifie les variations du signal d’entrée et peut conduire à une saturation rapide du circuit. Elle est utilisée dans des applications comme les comparateurs et les oscillateurs.
+    \item \textbf{Contre-réaction négative ~:} elle réduit l’écart entre l’entrée et la sortie, stabilisant ainsi le fonctionnement de l’amplificateur. Ce type de contre-réaction est largement utilisé dans les circuits d’amplification linéaire.
+    \item \textbf{Contre-réaction bilatérale ~:} elle combine des aspects des deux contre-réactions précédentes et est utilisée dans certains circuits spécifiques nécessitant un contrôle précis du gain et de la réponse en fréquence.
 \end{itemize}
 
 \begin{figure}[H]
@@ -343,7 +343,7 @@ On distingue trois types de contre-réaction :
         \label{fig:opamp-CRB}
     \end{subfigure}
     \caption{Contre-réaction des amplificateurs opérationnels}
-    \label{fig:opamp-CR}
+    \label{figOpampCR}
 \end{figure}
 
 Ici \(\mathsf{Z}\) est un composant ou un ensemble de composants quelconques 
@@ -465,7 +465,7 @@ délivrer un courant significatif en sortie, dans les limites de l’alimentatio
     \centering
     \includegraphics[width=0.5\textwidth]{suiveur}
     \caption{Montage suiveur}
-    \label{fig:suiveur}
+    \label{figSuiveur}
 \end{figure}
 
 En régime linéaire, l’égalité \( V_+ = V_- \) est vérifiée, ce qui implique que :
@@ -506,7 +506,7 @@ impédance d’entrée élevée.
     \centering
     \includegraphics[width=0.5\textwidth]{ampli-ni}
     \caption{Montage amplificateur non-inverseur}
-    \label{fig:non-inverting}
+    \label{figNonInverting}
 \end{figure}
 
 
@@ -531,7 +531,7 @@ Or, en régime linéaire, \( V_- = V_E \), donc :
 V_E = \frac{Z_1}{Z_1 + Z_2} V_S
 \]
 
-\textbf{Expression du gain}
+\textbf{Expression du gain ~:}
 
 En réarrangeant l’équation précédente pour exprimer \( V_S \) en fonction de 
 \( V_E \), on obtient :
@@ -556,7 +556,7 @@ L’amplificateur non inverseur présente plusieurs avantages :
 \begin{itemize}
     \item \textbf{Impédance d’entrée élevée} : Grâce à l’entrée non inverseuse de l’AOP, la source de signal ne subit pratiquement aucune charge.
     \item \textbf{Amplification sans inversion} : La tension de sortie \( V_S \) est en phase avec la tension d’entrée \( V_E \).
-    \item \textbf{Gain réglable} : Le facteur d’amplification dépend du rapport \( Z_2 / Z_1 \), ce qui permet une grande flexibilité dans la conception.
+    \item \textbf{Gain réglable ~:} Le facteur d’amplification dépend du rapport \( Z_2 / Z_1 \), ce qui permet une grande flexibilité dans la conception.
     \item \textbf{Stabilité et précision} : L’utilisation de la contre-réaction négative améliore la stabilité du gain et réduit la sensibilité aux variations des caractéristiques de l’AOP.
 \end{itemize}
 

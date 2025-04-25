@@ -1,5 +1,5 @@
 \chapter{Physique} \label{physique}
-\section{capteurs}\label{physique:capteurs}
+\section{Capteurs}\label{physiqueCapteurs}
 Un transducteur est un dispositif convertissant une grandeur physique
 en une autre ; par exemple une onde lumineuse en signal nerveux
 (vision animale) ou signal électrique (photorécepteur).\\
@@ -12,7 +12,7 @@ exploitable de nature électrique (en général) appelée réponse \(\left[s\rig
         \centering
         \includegraphics[width=0.9\textwidth]{capteur}
         \caption{Diagramme d'un capteur}
-        \label{fig:capteur}
+        \label{figCapteur}
     \end{figure}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -39,7 +39,7 @@ exploitable de nature électrique (en général) appelée réponse \(\left[s\rig
     \end{tikzpicture}%
     }
     \captionof{figure}{Caractéristique d'un capteur}
-    \label{fig:caracteristique}
+    \label{figCaracteristique}
 \end{minipage}
 
 Le \textbf{mesurande} \( m \) représente la grandeur physique à mesurer, comme la
@@ -114,7 +114,7 @@ réponse du capteur) peut être approximée par une fonction affine.\par
         \end{axis}
     \end{tikzpicture}
     \caption{Linéarité d'un capteur}
-    \label{fig:lineaire}
+    \label{figLineaire}
 \end{figure}
 
 Bien que la linéarité facilite l'interprétation des mesures et simplifie les 
@@ -122,7 +122,7 @@ traitements électroniques et numériques, elle limite la plage de mesure utilis
 En dehors de cette zone linéaire, le capteur peut présenter une 
 \textbf{sensibilité variable}, c'est-à-dire que la relation entre \( s \) et
 \( m \) devient non linéaire, rendant les mesures plus complexes à interpréter 
-et nécessitant des corrections.Il est alors nécessaire
+et nécessitant des corrections. Il est alors nécessaire
 d'étalonner le capteur ou d'appliquer des algorithmes de compensation pour 
 corriger les erreurs de linéarité lorsqu'on travaille en dehors de cette zone 
 idéale.
@@ -226,13 +226,13 @@ Les capteurs peuvent être classés en fonction de la nature de leur grandeur
         \hline
         Position & Effet Hall & Tension \\
         \hline
-        \multirow{3}{*}{Flux lumineux} & Effet photoémissif & Courant \\
+        \multirow{3}{*}{Flux lumineux} & Effet photo émissif & Courant \\
         & Effet photovoltaïque & Tension \\
         & Effet photoélectrique & Tension \\
         \hline
     \end{tabular}
     \caption{Principes physiques et grandeurs de sortie des capteurs}
-    \label{tab:capteurs}
+    \label{tabCapteurs}
 \end{table}
 
 \subsection*{Capteurs actifs – Effets physiques}
@@ -247,7 +247,7 @@ jonctions.
         \centering
         \includegraphics[width=0.9\textwidth]{thermoelectricite}
         \caption{Force électromotrice liée à la différence de température (\(T_1-T_2\))}
-        \label{fig:thermoelectricite}
+        \label{figThermoelectricite}
     \end{figure}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -255,19 +255,19 @@ jonctions.
         \centering
         \includegraphics[width=0.9\textwidth]{thermocouple}
         \caption{Schéma d'un thermocouple}
-        \label{fig:thermocouple}
+        \label{figThermocouple}
     \end{figure}
 \end{minipage}
 
 Des tables normalisées permettent d'obtenir la f.é.m $E_{A/B}$ en fonction de la 
-température $T_x$ lorsque $T_0$ est fixé à 0°C.
+température $T_x$ lorsque $T_0$ est fixé à 0~°C.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{thermocouple-graph}
     \caption{Variation de la différence de potentiel en fonction de la 
     température pour différents thermocouples.}
-    \label{fig:thermocouple_graph}
+    \label{figThermocoupleGraph}
 \end{figure}
 
 D'un point de vue électronique, un thermocouple peut être modélisé selon le 
@@ -278,7 +278,7 @@ une impédance $Z_c$.
     \centering
     \includegraphics[width=0.5\textwidth]{thermocouple-Thevenin}
     \caption{Modèle de Thévenin d'un thermocouple}
-    \label{fig:thermocouple_thevenin}    
+    \label{figThermocoupleThevenin}    
 \end{figure}
 
 \subsection*{Pyroélectricité}
@@ -292,7 +292,7 @@ Ce principe est exploité dans les capteurs pyroélectriques.
     \centering
     \includegraphics[width=0.3\textwidth]{pyroelectricite}
     \caption{Apparition de charges électriques}
-    \label{fig:pyroelectricite}
+    \label{figPyroelectricite}
 \end{figure}
 
 \subsection*{Piézo-électricité}
@@ -305,8 +305,8 @@ piézoélectriques.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{piezoelectricite}
-    \caption{Apparition de charges sur les faces opposées par la déformation du matériau. }
-    \label{fig:piezoelectricite}
+    \caption{Apparition de charges sur les faces opposées par la déformation du matériau.}
+    \label{figPiezoelectricite}
 \end{figure}
 
 \subsection*{Photoélectricité}
@@ -318,7 +318,7 @@ comme les photodiodes.
     \centering
     \includegraphics[width=0.4\textwidth]{photoelectricite}
     \caption{Apparition de charges sous l'effet de la lumière}
-    \label{fig:photoelectricite}
+    \label{figPhotoelectricite}
 \end{figure}
 
 \subsubsection{Photodiode}
@@ -345,7 +345,7 @@ des charges dans la photodiode lorsqu'elle est exposée à la lumière.
     \centering
     \includegraphics[width=0.7\textwidth]{photoelectricite-norton}
     \caption{Modèle de Norton d'une photodiode}
-    \label{fig:photodiode_norton}
+    \label{figPhotodiodeNorton}
 \end{figure}
 
 \subsection{Conditionnement des signaux des capteurs actifs}
@@ -354,7 +354,7 @@ Les capteurs actifs nécessitent souvent l'adjonction de conditionneurs pour am�
     \item d'amplifier le signal lorsque son amplitude est trop faible ;
     \item de filtrer le signal pour supprimer les bruits parasites ou interférences ;
     \item d'adapter l'impédance afin d'assurer une meilleure transmission du signal ;
-    \item de convertir le signal si nécessaire (ex: conversion courant-tension, linéarisation) ;
+    \item de convertir le signal si nécessaire (ex~: conversion courant-tension, linéarisation) ;
     \item d'isoler électriquement le capteur du reste du circuit si besoin.
 \end{itemize}
 
@@ -362,7 +362,7 @@ Les capteurs actifs nécessitent souvent l'adjonction de conditionneurs pour am�
 
 \paragraph{Capteurs passifs}  
 Les \textbf{capteurs passifs} sont des dispositifs qui ne génèrent pas 
-directement de signal électrique mais modifient une \textbf{grandeur électrique} 
+directement de signal électrique, mais modifient une \textbf{grandeur électrique} 
 telle que la \textbf{résistance} (\( R \)), l'\textbf{inductance} (\( L \)) ou 
 la \textbf{capacité} (\( C \)) en réponse à une variation du \textit{mesurande}. 
 En sortie, ils se comportent comme un \textbf{dipôle passif}, nécessitant ainsi 
@@ -396,7 +396,7 @@ d'assurer une \textbf{lecture fiable et précise} des variations de la
         \hline
     \end{tabularx}
     \caption{Caractéristiques électriques sensibles et matériaux utilisés pour différents capteurs}
-    \label{tab:caracteristiques_capteurs}
+    \label{tabCaracteristiquesCapteurs}
 \end{table}
 
 \subsection*{Capteurs résistifs}
@@ -408,7 +408,7 @@ température, la pression, la déformation, l'humidité, etc.
     R = f(a,b,c)/\sigma
 \]
 
-Avec \(f(a,b,c)\) une fonction de la g\'eometrie et des dimentions \(a,b,c\) et 
+Avec \(f(a,b,c)\) une fonction de la géométrie et des dimensions \(a,b,c\) et 
 \(\sigma\) la conductivit\'e du mat\'eriau.
 
 Dans le cas spécifique d'un \textbf{capteur de température}, la 
@@ -419,7 +419,7 @@ Il existe principalement deux types de capteurs de température :
     \item \textbf{Les thermistances}
 \end{itemize}
 
-\subsection*{Résistances métalliques (RTD - Resistance Temperature Detector)}
+\subsection*{Résistances métalliques (RTD - Résistance Température Detector)}
 
 Les résistances métalliques ont une valeur \textbf{croissante} avec la 
 température selon une loi d'évolution de la forme :
@@ -444,15 +444,15 @@ et le \textbf{Cuivre} sont aussi utilisés.
     \item Très bonne \textbf{stabilité} dans le temps.
     \item \textbf{Faible sensibilité} : environ \( 0.3 \) à \( 0.7 \, \Omega/^\circ C \).
     \item \textbf{Auto-échauffement} :
-    \begin{itemize}
-        \item Le courant échauffe la résistance, générant ainsi une erreur.
-        \item Pour réduire cet effet, il faut utiliser un courant aussi faible que possible.
-    \end{itemize}
+        \begin{itemize}
+            \item Le courant échauffe la résistance, générant ainsi une erreur.
+            \item Pour réduire cet effet, il faut utiliser un courant aussi faible que possible.
+        \end{itemize}
     \item \textbf{Linéarisation} :
-    \begin{itemize}
-        \item La courbe de sortie \( R=f(T) \) est \textit{quasiment linéaire}.
+        \begin{itemize}
+            \item La courbe de sortie \( R=f(T) \) est \textit{quasiment linéaire}.
+        \end{itemize}
     \end{itemize}
-\end{itemize}
 
 \subsection*{Thermistances}
 
@@ -524,32 +524,32 @@ La première application des jauges d'extensométrie est la
 
 Les \textbf{capteurs capacitifs} sont des \textbf{condensateurs}, généralement 
 de \textit{forme plane} ou \textit{cylindrique}, dont la \textbf{capacité} est 
-donnée par les relations suivantes :
+donnée par les relations suivantes~:
 
 \begin{itemize}
-    \item \textbf{Pour un condensateur plan} :
+    \item \textbf{Pour un condensateur plan}~:
     \begin{equation}
         C = \varepsilon_0 \varepsilon_r \cdot \frac{A}{d}
     \end{equation}
     
-    \item \textbf{Pour un condensateur cylindrique} :
+    \item \textbf{Pour un condensateur cylindrique}~:
     \begin{equation}
         C = 2 \pi \varepsilon_0 \varepsilon_r \cdot \frac{l}{\ln \left( \frac{r_2}{r_1} \right)}
     \end{equation}
 \end{itemize}
 
-où :
+où~:
 \begin{itemize}
-    \item \( C \) : capacité du condensateur (\si{\farad})
-    \item \( \varepsilon_0 \) : \textbf{permittivité du vide} (\si{\farad\per\meter})
-    \item \( \varepsilon_r \) : \textbf{permittivité relative} du \textit{diélectrique}
-    \item \( A \) : \textbf{aire} des plaques du condensateur (\si{\meter\squared})
-    \item \( d \) : \textbf{distance} entre les plaques (\si{\meter})
-    \item \( l \) : \textbf{longueur} du condensateur cylindrique (\si{\meter})
-    \item \( r_1, r_2 \) : \textbf{rayons} intérieur et extérieur du condensateur cylindrique (\si{\meter})
+    \item \( C \)~: capacité du condensateur (\si{\farad})
+    \item \( \varepsilon_0 \)~: \textbf{permittivité du vide} (\si{\farad\per\meter})
+    \item \( \varepsilon_r \)~: \textbf{permittivité relative} du \textit{diélectrique}
+    \item \( A \)~: \textbf{aire} des plaques du condensateur (\si{\meter\squared})
+    \item \( d \)~: \textbf{distance} entre les plaques (\si{\meter})
+    \item \( l \)~: \textbf{longueur} du condensateur cylindrique (\si{\meter})
+    \item \( r_1, r_2 \)~: \textbf{rayons} intérieur et extérieur du condensateur cylindrique (\si{\meter})
 \end{itemize}
 
-Le \textbf{mesurande} agit sur la \textbf{capacité} en modifiant :
+Le \textbf{mesurande} agit sur la \textbf{capacité} en modifiant~:
 \begin{itemize}
     \item la \textbf{permittivité} \( \varepsilon_r \) du \textit{diélectrique}
     \item les \textbf{dimensions géométriques} du condensateur (\( A, d, l, r_1, r_2 \))

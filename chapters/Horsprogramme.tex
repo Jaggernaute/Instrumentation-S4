@@ -1,6 +1,6 @@
-\chapter{Hors programme}\label{chap:hors-programme}
+\chapter{Hors programme}\label{chapHorsProgramme}
 
-\section{Échantillonnage}\label{hp:echantillonage}
+\section{Échantillonnage}\label{hpEchantillonnage}
 
 L’opération d’échantillonnage consiste à représenter un signal fonction du temps 
 \(s(t)\) \`a des instants multiples d’un intervalle de temps \(T\) (p\'eriode d’échantillonnage).
@@ -14,23 +14,23 @@ entiers de la période \(T\), associée à la fonction \(s(t)\) a l'ensemble de 
 % \textit{Pour plus de details, voir \Cref{sec:dirac}.}
 
 \section{Fonction delta de Dirac}
-\label{sec:dirac}
+\label{secDirac}
 
 Soit $\mathbb{R}^n$. La fonction delta de Dirac, notée $\delta$, n’est pas 
-une fonction ordinaire, mais une mesure borélienne\footnote{Glossaire : \gls{mesure_borelienne}} particulière. Elle est 
+une fonction ordinaire, mais une mesure borélienne\footnote{Glossaire~: \gls{mesureBorelienne}} particulière. Elle est 
 \textbf{concentrée en un seul point}, à savoir l’origine $0$, et attribue une 
 masse totale égale à $1$ à ce point. On la définit ainsi comme la mesure de 
-probabilité telle que :
+probabilité telle que~:
 
 \begin{align*}
     \delta(\{0\})  &= 1\\
-    \text{et plus généralement :} \quad \delta(A) &=
+    \text{et plus généralement~:} \quad \delta(A) &=
     \begin{cases}
         1 & \text{si } 0 \in A \\
         0 & \text{sinon}
     \end{cases}
 \end{align*}
-Pour tout borélien\footnote{Glossaire : \gls{borelien}} \(A \subset \mathbb{R}^n\).
+Pour tout borélien\footnote{Glossaire~: \gls{borelien}} \(A \subset \mathbb{R}^n\).
 
 Par abus de langage, on dit que la fonction delta de Dirac est 
 \textbf{nulle partout sauf en 0}, où elle prend une valeur infinie, de manière que 
@@ -44,7 +44,7 @@ particulier qu’elle est définie sur les ensembles boréliens et qu’elle est
 sur les compacts. Elle peut alors être identifiée à une 
 \textbf{forme linéaire continue de norme 1} sur l’espace des fonctions continues 
 à support compact, noté $\mathcal{C}_c(\mathbb{R}^n)$. Cette forme linéaire agit 
-comme suit :
+comme suit~:
 
 \[
 \mathcal{C}_c(\mathbb{R}^n) \to \mathbb{R}, \quad \varphi \mapsto \langle \delta, \varphi \rangle := \int \varphi \, \mathrm{d}\delta = \varphi(0)
@@ -73,19 +73,18 @@ $\|\cdot\|_\infty$ associée à la convergence uniforme.
         \end{axis}
     \end{tikzpicture}
     \caption{La fonction delta de Dirac.}
-    \label{figDirac}%
+    \label{figDirac}
 \end{figure}
 
 \emph{\Cref{figDirac} La flèche signifie que toute la "masse" de la fonction est concentrée en 0 et vaut 1.}
 
-
 \subsection{Le peigne de Dirac}
-\label{sec:peigne-dirac}
+\label{secPeigneDirac}
 Le peigne de Dirac est une mesure borélienne sur $\mathbb{R}^n$ qui
 \textbf{concentre une masse unitaire} sur chaque point de la grille
 \(\mathbb{Z}^n\) (l’ensemble des entiers naturels). Il est défini par la
 \textbf{somme infinie} de la fonction delta de Dirac, notée $\delta$,
-\textbf{pondérée} par la période d’échantillonnage $T$ :
+\textbf{pondérée} par la période d’échantillonnage $T$~:
 \[
     \Sha_T (t)\ \stackrel{\mathrm{def}}{=}\  \sum_{k=-\infty}^{\infty}\delta_{k T}(t) = \sum_{k=-\infty}^{\infty}\delta(t-kT).
 \]
@@ -109,7 +108,7 @@ Le peigne de Dirac est une mesure borélienne sur $\mathbb{R}^n$ qui
         \end{axis}
     \end{tikzpicture}
     \caption{Le peigne de Dirac.}
-    \label{fig:peigne-dirac}%
+    \label{figPeigneDirac}
 \end{figure}
 
 \subsection{Série de Fourier}
@@ -171,4 +170,6 @@ vers la valeur propre \(1\).
 Ce résultat peut être établi en considérant la transformée de Fourier 
 \(S_\tau\left(\xi\right)=\mathcal{F}\left[s_\tau\right]\left(\xi\right)\) de la famille
 de fonctions \(s_\tau(x)\) de la forme :
-
+\[
+    S_{\tau}(\xi) = \tau^{-1}  \sum_{m=-\infty}^{\infty}  e^{-\pi \tau^2 m^2} e^{-\pi \tau^{-2} ( \xi-m)^{2} }
+\]
