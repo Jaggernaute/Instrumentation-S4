@@ -1,7 +1,7 @@
 # Clean LaTeX Template
 
 le PDF est disponible ici :
-https://jaggernaute.github.io/Instrumentation-S4/thesis.pdf
+https://jaggernaute.github.io/Instrumentation-S4/Document.pdf
 
 ## Description
 
